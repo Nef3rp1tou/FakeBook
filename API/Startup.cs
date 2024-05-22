@@ -23,6 +23,7 @@ public class Startup
         });
 
         services.AddControllers();
+        services.AddCors();     
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -40,6 +41,7 @@ public class Startup
         app.UseHttpsRedirection();
         app.UseStaticFiles();
         app.UseRouting();
+        app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
         app.UseAuthorization();
 
         app.UseEndpoints(endpoints =>
