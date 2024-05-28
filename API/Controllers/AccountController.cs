@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class AccountController : BaseApiController
     {
 
@@ -29,16 +29,16 @@ namespace API.Controllers
         public async Task<ActionResult<UserDTO>> Register(RegisterDTO registerDTO)
         {
             if (await UserExists(registerDTO.Username)) return BadRequest("UserName is taken!");
-                using var hmac = new HMACSHA512();
-                var user = new AppUser 
-                {
-                    UserName = registerDTO.Username.ToLower(),
-                    PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDTO.Password)),
-                    PasswordSalt = hmac.Key
-                };
-                _context.Users.Add(user);
-                await _context.SaveChangesAsync();
-                
+            using var hmac = new HMACSHA512();
+            var user = new AppUser
+            {
+                UserName = registerDTO.Username.ToLower(),
+                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDTO.Password)),
+                PasswordSalt = hmac.Key
+            };
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+
 
 
             return new UserDTO
@@ -50,15 +50,16 @@ namespace API.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<UserDTO>> Login(LoginDTO loginDTO) {
+        public async Task<ActionResult<UserDTO>> Login(LoginDTO loginDTO)
+        {
             var user = await _context.Users
             .SingleOrDefaultAsync(x => x.UserName == loginDTO.UserName);
-            if(user == null) return Unauthorized("Invalid username!!!");
+            if (user == null) return Unauthorized("Invalid username!!!");
             using var hmac = new HMACSHA512(user.PasswordSalt);
             var ComputeHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDTO.Password));
             for (int i = 0; i < ComputeHash.Length; i++)
             {
-                if(ComputeHash[i] != user.PasswordHash[i])
+                if (ComputeHash[i] != user.PasswordHash[i])
                 {
                     return Unauthorized("Password is incorect!");
                 }

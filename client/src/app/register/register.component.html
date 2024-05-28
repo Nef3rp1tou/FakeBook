@@ -1,0 +1,21 @@
+<form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off">
+    <h2 class="text-center text-primary">დარეგისტრირდი</h2>
+    <hr>
+    <div class="from-group">
+      <input type="text" name="username" class="form-control"
+          [(ngModel)]="model.username" placeholder="მომხმარებლის სახელი">
+    </div>
+
+    <br>
+    <div class="from-group">
+      <input type="password" name="password" class="form-control"
+          [(ngModel)]="model.password" placeholder="მომხმარებლის პაროლი">
+    </div>
+    <br>
+    <div class="form-group text-center">
+      <button class="btn btn-success mr-2" type="submit">რეგისტრაცია </button>
+      <button class="btn btn-secondary mr-2"(click)="cancel()" type="button">გაუქმება </button>
+
+    </div>
+
+</form>

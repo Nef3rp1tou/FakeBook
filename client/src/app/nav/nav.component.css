@@ -1,0 +1,10 @@
+ul.navbar-nav.me-auto
+{
+  margin-right: 700px;
+}
+
+.dropdown-toggle, .dropdown-toggle-item
+{
+  cursor: pointer;
+
+}
