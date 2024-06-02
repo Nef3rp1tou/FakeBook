@@ -1,23 +1,25 @@
 
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
   <div class="container">
-    <a class="navbar-brand" href="#">მაჭანკალი</a>
-    <ul class="navbar-nav me-auto" *ngIf="accountService.currentUser$ |async">
-      <li class="nav-item">
-        <a class="nav-link" href="#">გარიგებები</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">სია</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">მიმოწერა</a>
-      </li>
-      <li class="nav-item">
-      </li>
+    <a class="navbar-brand" routerLink="/">მაჭანკალი</a>
+    <ul class="navbar-nav mr-auto" >
+      <ng-container *ngIf="accountService.currentUser$ |async">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/members" routerLinkActive="active">გარიგებები</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/lists" routerLinkActive="active">სია</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/messages" routerLinkActive="active">მიმოწერა</a>
+        </li>
+        <li class="nav-item">
+        </li>
+      </ng-container>
     </ul>
 
-    <div class="dropdown" *ngIf="accountService.currentUser$|async" dropdown>
-      <a class="dropdown-toggle text-light" dropdownToggle>მოგესალმებით</a>
+    <div class="dropdown" *ngIf="(accountService.currentUser$|async) as user" dropdown>
+      <a class="dropdown-toggle text-light" dropdownToggle>მოგესალმებით {{user.username | titlecase}}</a>
       <div class="dropdown-menu mt-3" *dropdownMenu>
         <a class="dropdown-item">პროფილის ჩასწორება</a>
         <div class="dropdown-divider"></div>
