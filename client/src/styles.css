@@ -1,1 +1,80 @@
-/* You can add global styles to this file, and also import other style files */
+/* Tab Panel */
+.tab-panel {
+    border: none; /* Remove default border */
+    padding: 15px; /* Slightly smaller padding */
+    border-radius: 6px; /* Softer, more rounded corners */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+    background-color: #f5f5f5; /* Light grey background for contrast */
+}
+
+/* Tabs (Inactive) */
+.nav-tabs .nav-link {
+    color: #22ec9e; /* Cool green color */
+    border: none;
+    background-color: transparent; /* Make tabs transparent by default */
+    transition: color 0.3s, border-bottom 0.3s; /* Smooth transition for color and border changes */
+    padding: 8px 16px; /* Smaller padding */
+}
+
+/* Tabs (Hover) */
+.nav-tabs .nav-link:hover {
+    color: #4db6ac; /* Brighter cyan on hover */
+    border-bottom: 4px solid #9575cd; /* Purple border on hover */
+    background-color: rgba(77, 182, 172, 0.1); /* Light cyan background on hover */
+}
+
+/* Tabs (Active) */
+.nav-tabs .nav-link.active {
+    color: #333; /* Darker text on active tab */
+    background-color: transparent;
+    border-bottom: 4px solid #d81b60; /* Pink accent for active tab */
+    font-weight: bold; /* Bold text for active tab */
+}
+
+/* Remove default bottom border for the tab container */
+.member-tabset > .nav-tabs {
+    border-bottom: none;
+}
+
+/* Tab Content */
+.tab-content {
+    background-color: #fff; /* White background for tab content */
+    padding: 15px; /* Slightly smaller padding */
+    border-radius: 6px; /* Match tab panel border radius */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Consistent box shadow with tab panel */
+    margin-top: -4px; /* Slight overlap with active tab border */
+    animation: fadeIn 0.3s ease-in-out; /* Smooth fade-in animation for content */
+}
+
+/* Optional: Additional styling for better material design look */
+.nav-tabs {
+    display: flex;
+    justify-content: space-around; /* Evenly distribute tabs */
+    margin-bottom: 15px; /* Smaller margin */
+    border-bottom: 1px solid #ddd; /* Subtle border to separate tabs from content */
+}
+
+.nav-tabs .nav-link {
+    padding: 8px 16px; /* Smaller padding for better touch targets */
+    border-radius: 6px 6px 0 0; /* Round top corners for tabs */
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth background and transform transitions */
+}
+
+.nav-tabs .nav-link:hover {
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.nav-tabs .nav-link.active {
+    border-radius: 6px 6px 0 0; /* Ensure active tab top corners are rounded */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for active tab */
+}
+
+/* Keyframes for fadeIn animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
