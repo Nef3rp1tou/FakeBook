@@ -44,7 +44,9 @@
         <p>{{member.interests}}</p>
       </tab>
       <tab heading='ფოტოები'>
-        <h4>იტვირთება...</h4>
+        <ngx-gallery [options]="galleryOptions" [images]="galleryImages"
+        style="display: inline-block; margin-bottom: 20px;">
+      </ngx-gallery>
       </tab>
       <tab heading='მიწერე {{member.knownAs}}_ს'>
         <h4>გზაშია...</h4>
