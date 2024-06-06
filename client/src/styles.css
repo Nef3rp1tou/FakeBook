@@ -1,5 +1,6 @@
 /* Tab Panel */
 .tab-panel {
+
     border: none; /* Remove default border */
     padding: 15px; /* Slightly smaller padding */
     border-radius: 6px; /* Softer, more rounded corners */
@@ -9,6 +10,8 @@
 
 /* Tabs (Inactive) */
 .nav-tabs .nav-link {
+    font-size: 19px;
+    font-weight:400;
     color: #22ec9e; /* Cool green color */
     border: none;
     background-color: transparent; /* Make tabs transparent by default */
