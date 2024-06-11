@@ -8,3 +8,17 @@ ul.navbar-nav.me-auto
   cursor: pointer;
 
 }
+
+img {
+  max-height: 50px;
+  max-width: 50px;
+  border: 2px solid #5ad4fd;
+  border-radius: 50%;  /* Make the image round */
+  padding: 2px;  /* Add padding inside the border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Add a subtle shadow */
+  transition: transform 0.2s;  /* Smooth transition for hover effect */
+}
+
+img:hover {
+  transform: scale(1.1);  /* Slightly enlarge on hover */
+}
