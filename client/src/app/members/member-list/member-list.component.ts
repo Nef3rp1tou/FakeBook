@@ -13,11 +13,12 @@ import { AccountService } from 'src/app/_services/account.service';
   styleUrls: ['./member-list.component.css']
 })
 export class MemberListComponent implements OnInit {
+  showFilters = false;
   members: Member[];
   pagination : Pagination;
   userParams : UserParams;
   user : User;
-  genderList = [{value:'male', display: 'Males'}, {value:'female', display:'Females'}]
+  genderList = [{value:'male', display: 'მამრობითი'}, {value:'female', display:'მდედრობითი'}]
 
   constructor(private membersService:MembersService, private accountService:AccountService) {
     this.accountService.currentUser$.pipe(take(1)).subscribe(user => {
@@ -49,6 +50,8 @@ export class MemberListComponent implements OnInit {
 
   }
 
-
+  toggleFilters() {
+    this.showFilters = !this.showFilters;
+  }
 
 }

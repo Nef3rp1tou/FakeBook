@@ -1,0 +1,7 @@
+.btn-group .btn {
+  margin-right: 5px;
+}
+.btn.active {
+  background-color: #007bff;
+  color: white;
+}
